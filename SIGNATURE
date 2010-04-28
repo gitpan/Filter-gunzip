@@ -1,0 +1,87 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.63.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 842745cb706f8f2126506f544492f7a80dbe29b3 COPYING
+SHA1 e6c63ed5071d895cd295695400f03c2fb48f0413 Changes
+SHA1 2a67eee3d28d4e600ba804ca948b0906795aeb28 MANIFEST
+SHA1 00e97fa7664a1ea29a3be5b0b2ec2b0076e002f1 MANIFEST.SKIP
+SHA1 f3058148dfad51add7d95a651458523c06ebb051 META.yml
+SHA1 11da04c04f8346abf63434f1904cde6cef551570 Makefile.PL
+SHA1 80d8fdf3ed493fd68a2ed3ac1181afee8da5a068 README
+SHA1 695f7f8629f814221429330d309658a5c39db204 debian/changelog
+SHA1 ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4 debian/compat
+SHA1 66533f9283f58155bf82d15aea33ab8ffee83e02 debian/control
+SHA1 7e0d58be2353d2b7a20e761ca6220b7ad9d1017b debian/copyright
+SHA1 3ec30bc697577ccea6340dd5a67ed2e1364b4d9f debian/rules
+SHA1 61652cd1568dcf2614df833eba241755eee34e89 debian/source/format
+SHA1 e51c311d83e5f16865eb7e63f2aa6baec728e0a9 debian/watch
+SHA1 b3e66c0d8e34f076d2d61cd33582c3c33fee37d1 devel/AnyUncompress.pm
+SHA1 74f476c377da8e1288e065d34e6c024a72bbcf66 devel/Base-eof-check.pm
+SHA1 6bf18c5a00a3c3f4186f47f46f5470027ce8e8a0 devel/Base-final-status.pm
+SHA1 152b9ff6de2f2e4370e6d4f34bd8bca0c5765b5d devel/Base.pm
+SHA1 f434dcdee5d6cbde4d01dd49da92f5a99a7ab93b devel/Filter-bunzip2-Filter.pm
+SHA1 73e030a109dbf72bff7cafe7f9f16661593ced52 devel/GunzipNative.pm
+SHA1 71fd686ce635390877ad9ceb2dda4f80f72e2557 devel/Nofiles.pm
+SHA1 998c7112214c288b5637a2a6db33edc377fcf500 devel/data-gunzip.pl.gz
+SHA1 390ee5d1787794c1481616a2fd78ed300a854921 devel/data.pl
+SHA1 5daa60cd723f44d44aabfb2dbd654d2b5884e0c7 devel/exec-data.pl
+SHA1 2aa25a5f41359c257f768fa049b5c547de5ea505 devel/exec-nofiles.pl
+SHA1 2269cdb205d854ed579a101f1de76c8e374d7c7d devel/exec-nofork.pl
+SHA1 3b890f447846b76e61b72e7c12e7e4acba023967 devel/exec.pl.gz
+SHA1 319f83f9db6bff0ff888a07d4185e24d7c9adca9 devel/flock.pl
+SHA1 1007b384d380421f36c018af836fc6ceadd7d9dc devel/foo.pl.gz
+SHA1 019fb9dadb4e56ae9f77da8523b9fb141ef3509c devel/gunzip-data.pl.gz
+SHA1 752aa52140d3bfbfc6365607c66073b89a828ee6 devel/gunzip-with-exec.pl.gz
+SHA1 af978af4d3aa021e8a6c6afc7d94cfb26fd5b9bf devel/gunzip-with-smart.pl.gz
+SHA1 1af1f65fc59b31d48ccd9ff15292f870cd6ca49b devel/gunzip-with-tee.pl.gz
+SHA1 4352f813127f86a2f0b50efa0ab8d06817e08234 devel/inflateInit.pl
+SHA1 6c74d2d544acbb2784bed44120947e0d7c50ecd8 devel/nofiles-main.pl
+SHA1 7d132fcb63f3c6ff06f0eb5437293fc610d4f633 devel/run.pl
+SHA1 6cdb1edfc013429a33e28b208cdbbd3ec07599c6 devel/selfloader-fork.pl
+SHA1 559867fd2ae58afe464cdefffa82c275f06751c1 devel/selfloader-mmap.pl
+SHA1 1643c7a4afcc957571fb5e0e3047e9b2a3ae93c7 devel/selfloader.pl.gz
+SHA1 4698e4d101944266b645615efee62053cff041f0 devel/show-argv.pl.gz
+SHA1 5ac2fbc5d0a7713de8776bdade1480f2801a637e devel/smart.pl
+SHA1 8c60ea81290ea21066940168ba67173067190473 devel/tee-data.pl
+SHA1 131303796fd9e7e90323f1ea522ed29fb37a19ed devel/uudecode.pl
+SHA1 86db32cab8639eea832b88658bb9be4374f20c85 devel/zlib.pl
+SHA1 4285aafb753c9ba76d45158dc84b5eef306e4c03 examples/hello.pl.gz
+SHA1 aa750123e41dba6217cfbd1592530394b42c24b9 examples/self-gunzip-part.pl
+SHA1 f16b156e34ba6b809a44df39fad52f28189dabe8 examples/self-gunzip.pl
+SHA1 de3383d2aa6c33b7c94408013d3642cac56e38c4 gunzip.xs
+SHA1 683736a89b8a1cf1aee59e2ec665e3fe34e40339 inc/MyMakeMakerExtras.pm
+SHA1 63427b66eb26f013f10c835b0cf320c93361f310 inc/my_pod2html
+SHA1 d060369d16ba1fc13958f8057c43d70500084c06 lib/Filter/gunzip.pm
+SHA1 7098b32a8afd0920384f6f4b5d209923ad84073c lib/Filter/gunzip/Filter.pm
+SHA1 847ddd74867e960646b4c166ab42047db4f9a1c4 ppport.h
+SHA1 d5d5c83c83918d8c97ca79e92ea840cdf277f01f t/0-META-read.t
+SHA1 37abd43b41068804ea4bb099fdd89af21be82926 t/0-Test-DistManifest.t
+SHA1 8f93fb4c8f0424a4442cc93c9a2e86342ef55281 t/0-Test-Pod.t
+SHA1 cfb7a2cba63fdedb0a568c843153694aa2b96fde t/0-Test-YAML-Meta.t
+SHA1 957b33b93386812f7366b537ec2bfdc18f851d14 t/gunzip-Filter.t
+SHA1 0e4f61ce08d4261af83cd3225a4edd5ed573b952 t/gunzip.t
+SHA1 46c5f338fe1c23d89bc1664a4083e8b0b50ba026 t/test1.dat
+SHA1 c7f5ef26348708570f2aa8f8ca5d46d2d91c06d2 t/test1.in
+SHA1 aecc9692d7168a7bac42558f9f4ff421a47c0852 t/test2.dat
+SHA1 ce68002a6f34e97eaad212ad6ad4649094978753 t/test2.in
+SHA1 01eb136e9174573f9808ab27f4a2e4263f44d3be t/test2.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iD8DBQFL2L/bLFMCIV9q3ToRAldKAKCbWqWb6b5tif4RjaTl18DhOu5+ogCgm5hW
+ieOEyXSnoBnlRCSKoG6XUKA=
+=4QvI
+-----END PGP SIGNATURE-----

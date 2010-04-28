@@ -1,0 +1,66 @@
+#!/usr/bin/perl -w
+
+# Copyright 2010 Kevin Ryde
+
+# This file is part of Filter-gunzip.
+#
+# Filter-gunzip is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 3, or (at your option) any later
+# version.
+#
+# Filter-gunzip is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+# or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with Filter-gunzip.  If not, see <http://www.gnu.org/licenses/>.
+
+use strict;
+use warnings;
+use Test::More tests => 7;
+
+BEGIN {
+ SKIP: { eval 'use Test::NoWarnings; 1'
+           or skip 'Test::NoWarnings not available', 1; }
+}
+
+require Filter::gunzip;
+
+#-----------------------------------------------------------------------------
+# VERSION
+
+{
+  my $want_version = 1;
+  is ($Filter::gunzip::VERSION, $want_version, 'VERSION variable');
+  is (Filter::gunzip->VERSION,  $want_version, 'VERSION class method');
+  ok (eval { Filter::gunzip->VERSION($want_version); 1 },
+      "VERSION class check $want_version");
+  my $check_version = $want_version + 1000;
+  ok (! eval { Filter::gunzip->VERSION($check_version); 1 },
+      "VERSION class check $check_version");
+}
+
+#-----------------------------------------------------------------------------
+# test1
+
+{
+  require FindBin;
+  my $used_more_than_once = $FindBin::Bin;
+  my $filename = File::Spec->catfile ($FindBin::Bin, 'test1.dat');
+
+  use vars qw($test1 $test1_more);
+  $test1 = 0;
+  $test1_more = 0;
+  my $result = eval { no warnings;
+                      require $filename };
+  my $err = $@;
+  is ($result, "some thing");
+  is ($err, '');
+
+  # is ($result, "test1 final result");
+  # is ($test1_more, 1);
+}
+
+exit 0;

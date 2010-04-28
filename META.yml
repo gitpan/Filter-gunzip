@@ -1,0 +1,58 @@
+--- #YAML:1.0
+name:               Filter-gunzip
+version:            1
+abstract:           Source filter uncompressing gzip files.
+author:
+    - Kevin Ryde <user42@zip.com.au>
+license:            gpl
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+build_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    Compress::Raw::Zlib:  0
+    Filter::Util::Call:   0
+    perl:                 5.005
+    PerlIO:               0
+    PerlIO::gzip:         0
+    Test::More:           0
+    warnings:             0
+resources:
+    homepage:  http://user42.tuxfamily.org/filter-gunzip/index.html
+    license:   http://www.gnu.org/licenses/gpl.html
+no_index:
+    directory:
+        - t
+        - inc
+        - devel
+        - examples
+        - maybe
+generated_by:       ExtUtils::MakeMaker version 6.55_02
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
+optional_features:
+    maximum_devel:
+        description:  Stuff used variously for development.
+        requires:
+            BSD::Resource:       0
+            Compress::Zlib:      0
+            Filter::exec:        0
+            Filter::tee:         0
+            Filter::Util::Call:  0
+            lib::abs:            0
+            Pod::Simple::HTML:   0
+            Smart::Comments:     0
+    maximum_tests:
+        description:  Have "make test" do as much as possible.
+        requires:
+            Parse::CPAN::Meta:   0
+            Test::DistManifest:  0
+            Test::NoWarnings:    0
+            Test::Pod:           1.00
+            Test::YAML::Meta:    0.13
+            YAML:                0
+            YAML::Syck:          0
+            YAML::Tiny:          0
+            YAML::XS:            0
