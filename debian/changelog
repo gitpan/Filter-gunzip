@@ -1,5 +1,5 @@
-libfilter-gunzip-perl (1-1) unstable; urgency=low
+libfilter-gunzip-perl (2-1) unstable; urgency=low
 
   * Packaged version.
 
- -- Kevin Ryde <user42@zip.com.au>  Thu, 29 Apr 2010 09:06:53 +1000
+ -- Kevin Ryde <user42@zip.com.au>  Sun, 29 Aug 2010 10:11:13 +1000

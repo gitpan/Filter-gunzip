@@ -22,7 +22,7 @@ use Carp;
 use Filter::Util::Call;
 use Compress::Zlib;
 
-our $VERSION = 1;
+our $VERSION = 2;
 
 use constant DEBUG => 1;
 

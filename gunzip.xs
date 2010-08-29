@@ -28,7 +28,7 @@ SV *
 _rsfp_filters ()
 CODE:
     /* printf ("%p\n", PL_parser); */
-    if (PL_parser) {
+    if (PL_parser && PL_rsfp_filters) {
       /* printf ("%p\n", PL_rsfp_filters); */
       RETVAL = newRV_inc ((SV *) PL_rsfp_filters);
     } else {

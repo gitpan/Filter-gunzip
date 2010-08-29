@@ -1,3 +1,5 @@
+#!/usr/bin/perl -w
+
 # Copyright 2010 Kevin Ryde
 
 # This file is part of Filter-gunzip.

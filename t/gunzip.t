@@ -19,12 +19,11 @@
 
 use strict;
 use warnings;
-use Test::More tests => 7;
+use Test::More tests => 6;
 
-BEGIN {
- SKIP: { eval 'use Test::NoWarnings; 1'
-           or skip 'Test::NoWarnings not available', 1; }
-}
+use lib 't';
+use MyTestHelpers;
+BEGIN { MyTestHelpers::nowarnings() }
 
 require Filter::gunzip;
 
@@ -32,7 +31,7 @@ require Filter::gunzip;
 # VERSION
 
 {
-  my $want_version = 1;
+  my $want_version = 2;
   is ($Filter::gunzip::VERSION, $want_version, 'VERSION variable');
   is (Filter::gunzip->VERSION,  $want_version, 'VERSION class method');
   ok (eval { Filter::gunzip->VERSION($want_version); 1 },
@@ -41,6 +40,19 @@ require Filter::gunzip;
   ok (! eval { Filter::gunzip->VERSION($check_version); 1 },
       "VERSION class check $check_version");
 }
+
+#-----------------------------------------------------------------------------
+# _rsfp
+
+# {
+#   my $rsfp = Filter::gunzip::_rsfp();
+#   diag "_rsfp is ", $rsfp;
+#   if ($rsfp) {
+#     my $rsfp_filters = Filter::gunzip::_rsfp_filters();
+#     diag "_rsfp_filters is ", $rsfp_filters;
+#   }
+# }
+
 
 #-----------------------------------------------------------------------------
 # test1
@@ -53,14 +65,12 @@ require Filter::gunzip;
   use vars qw($test1 $test1_more);
   $test1 = 0;
   $test1_more = 0;
+  diag "load $filename";
   my $result = eval { no warnings;
                       require $filename };
   my $err = $@;
   is ($result, "some thing");
   is ($err, '');
-
-  # is ($result, "test1 final result");
-  # is ($test1_more, 1);
 }
 
 exit 0;

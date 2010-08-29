@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this file.  If not, see <http://www.gnu.org/licenses/>.
 
-use 5.000;
+# require 5.000;
 use strict;
 use warnings;
 use Test::More;

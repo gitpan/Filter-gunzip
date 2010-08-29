@@ -21,7 +21,7 @@ use warnings;
 use Carp;
 use Filter::Util::Call qw(filter_add filter_read filter_del);
 
-our $VERSION = 1;
+our $VERSION = 2;
 
 use constant DEBUG => 0;
 

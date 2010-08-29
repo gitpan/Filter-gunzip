@@ -46,14 +46,11 @@ MyMakeMakerExtras::WriteMakefile
    => { resources
         => { homepage => 'http://user42.tuxfamily.org/filter-gunzip/index.html' },
         optional_features
-        => { maximum_tests
-             => { description => 'Have "make test" do as much as possible.',
-                  requires => { 'Test::NoWarnings' => 0,
-                              },
-                },
-             maximum_devel
+        => { maximum_devel
              => { description => 'Stuff used variously for development.',
                   requires => { 'Compress::Zlib' => 0,
+                                'Compress::Raw::Bzip2' => 0,
+                                'Devel::Peek' => 0,
                                 'Filter::Util::Call' => 0,
                                 'BSD::Resource' => 0,
                                 'Smart::Comments' => 0,

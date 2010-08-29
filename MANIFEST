@@ -57,6 +57,7 @@ t/0-Test-Pod.t
 t/0-Test-YAML-Meta.t
 t/gunzip-Filter.t
 t/gunzip.t
+t/MyTestHelpers.pm
 t/test1.dat
 t/test1.in
 t/test2.dat

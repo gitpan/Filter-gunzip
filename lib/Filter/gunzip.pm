@@ -24,7 +24,7 @@ use PerlIO;
 use PerlIO::gzip;
 
 use vars qw($VERSION @ISA);
-$VERSION = 1;
+$VERSION = 2;
 @ISA = ('DynaLoader');
 
 __PACKAGE__->bootstrap($VERSION);
@@ -35,8 +35,9 @@ __PACKAGE__->bootstrap($VERSION);
 sub import {
   my ($class) = @_;
 
-  ### _rsfp_filters(): scalar(@{_rsfp_filters()})
-  if (! @{_rsfp_filters()}) {
+  my $filters = _rsfp_filters();
+  ### _rsfp_filters(): scalar(@{$filters})
+  if ($filters && ! @{$filters}) {
     my $fh;
     ### _rsfp(): _rsfp()
     if (($fh = _rsfp())
@@ -90,7 +91,7 @@ Filter::gunzip - gunzip Perl source code for execution
 
 =head1 DESCRIPTION
 
-This filter uncompresses gzipped Perl code for execution.  It's slightly a
+This filter uncompresses gzipped Perl code at run-time.  It's slightly a
 proof of concept, but works well as far as it goes.  It can be used from the
 command line to run a F<.pl.gz> file,
 
@@ -103,23 +104,23 @@ immediately following that line,
     use Filter::gunzip;
     ... raw gzip bytes
 
-The filter is implemented by pushing a C<PerlIO::gzip> layer for the usual
-case that C<Filter::gunzip> is the first filter and PerlIO is available.
-Otherwise a block-oriented source filter is used per L<perlfilter>.  In both
-cases the compressed code can include further source filters in the usual
-way.
+The filter is implemented one of two ways.  For the usual case that
+C<Filter::gunzip> is the first filter and PerlIO is available then push a
+C<PerlIO::gzip> layer.  Otherwise add a block-oriented source filter per
+L<perlfilter>.  In both cases the uncompressed code can apply further source
+filters in the usual way.
 
 =head2 DATA Handle
 
 The C<__DATA__> token (L<perldata/Special Literals>) and C<DATA> handle can
-be used in the compressed source some of the time.
+be used in the compressed source, but only some of the time.
 
 For the PerlIO case the C<DATA> handle is simply the input, including the
 C<:gzip> uncompressing layer, positioned just after the C<__DATA__> token.
 This works well for data compressed along with the code, though
-C<PerlIO::gzip> as of version 0.18 cannot dup or seek which means
-C<SelfLoader> doesn't work.  (Both probably feasible, though seeking might
-be slow.)
+C<PerlIO::gzip> as of version 0.18 cannot dup or seek which means for
+instance C<SelfLoader> doesn't work.  (Duping and seeking are probably both
+feasible, though seeking backward might be slow.)
 
 For the filter case C<DATA> doesn't really work properly.  Perl stops
 reading from the source filters at the C<__DATA__> token, because that's
@@ -134,24 +135,24 @@ Perl source is normally read without CRLF translation (in Perl 5.6.1 and up
 at least).  If C<Filter::gunzip> sees a C<:crlf> layer on the input it
 pushes the C<:gzip> underneath that, since the CRLF is almost certainly
 meant to apply to the text, not to the raw gzip bytes.  This should let it
-work with a forced C<PERLIO=crlf> suggested by F<README.cygwin> (see
+work with the forced C<PERLIO=crlf> suggested by F<README.cygwin> (see
 L<perlrun/"PERLIO">).
 
 The gzip format has a CRC checksum at the end of the data.  This might catch
-subtle corruption in the compressed bytes, though as of Perl 5.10 the parser
-usually doesn't report a read error, and in any case the code is compiled
-and C<BEGIN> blocks executed as uncompressing proceeds, so corruption is
-likely to provoke an error before the CRC is reached.
+subtle corruption in the compressed bytes, except as of Perl 5.10 the parser
+usually doesn't report a read error and in any case the code is compiled and
+C<BEGIN> blocks are executed as uncompressing proceeds, so corruption will
+likely provoke a syntax error before the CRC is reached.
 
 Only the gzip format (RFC 1952) is supported.  Zlib format (RFC 1950)
 differs only in the header, but C<PerlIO::gzip> (version 0.18) doesn't allow
-it.  The actual C<gunzip> program can handle a couple of other formats, like
-Unix F<.Z> C<compress>, but they're likely best left to other modules.
+it.  The actual C<gunzip> program can handle some other formats, like Unix
+F<.Z> C<compress>, but they're probably best left to other modules.
 
 The bzip2 format could be handled by a very similar filter, if F<.pl.bz2>
 files were used.  Its decompressor uses at least 2.5 Mbytes of memory
-though, so if choosing a format there'd have to be a big disk saving before
-it was worth that much at runtime.
+though, so if choosing that format there'd have to be a big disk saving
+before it was worth that much memory at runtime.
 
 =head1 OTHER WAYS TO DO IT
 
@@ -160,23 +161,25 @@ command line or self-expanding,
 
     perl -MFilter::exec=zcat foo.pl.gz
 
-Because it's a block-oriented filter (as of version 1.37) a compressed
-C<__DATA__> section within the script doesn't work.
+Because C<Filter::exec> is a block-oriented filter (as of version 1.37) a
+compressed C<__DATA__> section within the script doesn't work.
 
-C<PerlIO::gzip> can be pushed on the command line using the C<open> pragma
-with a C<require>.  Since that pragma is lexical it doesn't affect other
-later loads or opens.
+C<PerlIO::gzip> can be applied to a script with the C<open> pragma and a
+C<require>.  For example something like the following from the command line.
+Since the C<open> pragma is lexical it doesn't affect other later loads or
+opens.
 
     perl -e '{use open IN=>":gzip";require shift}' \
             foo.pl.gz arg1 arg2
 
-It doesn't work to set a global C<PERLIO=':gzip(autopop)'> though, since the
-default layers can only be Perl builtins (see L<perlrun/PERLIO>).
+It doesn't work to set a C<PERLIO> environment variable for a global
+C<:gzip> layer, eg. C<PERLIO=':gzip(autopop)'>, because the default layers
+are restricted to Perl builtins (see L<perlrun/PERLIO>).
 
 =head1 SEE ALSO
 
 L<PerlIO::gzip>, L<PerlIO>, L<Filter::Util::Call>, L<Filter::exec>,
-L<gzip(1)>, L<zcat(1)>
+L<gzip(1)>, L<zcat(1)>, L<open>
 
 =head1 HOME PAGE
 

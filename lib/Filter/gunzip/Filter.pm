@@ -23,7 +23,7 @@ use Filter::Util::Call qw(filter_add filter_read filter_del);
 use Compress::Raw::Zlib qw(Z_OK Z_STREAM_END);
 
 use vars '$VERSION';
-$VERSION = 1;
+$VERSION = 2;
 
 # uncomment this to run the ### lines
 #use Smart::Comments;
@@ -148,21 +148,12 @@ __END__
 
 The PerlIO layer is pushed underneath any C<:crlf> layer.  
 
-
-
 As of version 1.37 it connects the child process directly to the source file
 and so avoids PerlIO layers like CRLF.  It might be good or bad to skip
 layers or other earlier source filters, but it does make it 8-bit clean.
 What should a binary mode filter do in general?
 
-
-
-  Other unrelated formats like
+Other unrelated formats like
 Unix C<compress> are left for other modules.
-
-
-
-
-
 
 Depends: perl (>= 5.005), libfilter-perl, libcompress-raw-zlib-perl | perl (>= 5.10), libwarnings-perl | perl-modules (>= 5.6), ${perl:Depends}, ${misc:Depends}, ${shlibs:Depends}

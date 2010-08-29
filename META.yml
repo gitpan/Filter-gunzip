@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Filter-gunzip
-version:            1
+version:            2
 abstract:           Source filter uncompressing gzip files.
 author:
     - Kevin Ryde <user42@zip.com.au>
@@ -36,22 +36,24 @@ optional_features:
     maximum_devel:
         description:  Stuff used variously for development.
         requires:
-            BSD::Resource:       0
-            Compress::Zlib:      0
-            Filter::exec:        0
-            Filter::tee:         0
-            Filter::Util::Call:  0
-            lib::abs:            0
-            Pod::Simple::HTML:   0
-            Smart::Comments:     0
+            BSD::Resource:        0
+            Compress::Raw::Bzip2:  0
+            Compress::Zlib:       0
+            Devel::Peek:          0
+            Filter::exec:         0
+            Filter::tee:          0
+            Filter::Util::Call:   0
+            lib::abs:             0
+            Pod::Simple::HTML:    0
+            Smart::Comments:      0
+            warnings::unused:     0
     maximum_tests:
         description:  Have "make test" do as much as possible.
         requires:
             Parse::CPAN::Meta:   0
             Test::DistManifest:  0
-            Test::NoWarnings:    0
             Test::Pod:           1.00
-            Test::YAML::Meta:    0.13
+            Test::YAML::Meta:    0.15
             YAML:                0
             YAML::Syck:          0
             YAML::Tiny:          0

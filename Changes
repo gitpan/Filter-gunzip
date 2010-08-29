@@ -16,5 +16,8 @@ You should have received a copy of the GNU General Public License along
 with Filter-gunzip.  If not, see <http://www.gnu.org/licenses/>.
 
 
+Version 2, August 2010
+    - allow for PL_rsfp_filters==NULL in perl 5.8.9
+
 Version 1, April 2010
     - the first version

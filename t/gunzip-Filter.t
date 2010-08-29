@@ -19,12 +19,11 @@
 
 use strict;
 use warnings;
-use Test::More tests => 8;
+use Test::More tests => 7;
 
-BEGIN {
- SKIP: { eval 'use Test::NoWarnings; 1'
-           or skip 'Test::NoWarnings not available', 1; }
-}
+use lib 't';
+use MyTestHelpers;
+BEGIN { MyTestHelpers::nowarnings() }
 
 require Filter::gunzip::Filter;
 
@@ -32,7 +31,7 @@ require Filter::gunzip::Filter;
 # VERSION
 
 {
-  my $want_version = 1;
+  my $want_version = 2;
   is ($Filter::gunzip::Filter::VERSION, $want_version, 'VERSION variable');
   is (Filter::gunzip::Filter->VERSION,  $want_version, 'VERSION class method');
   ok (eval { Filter::gunzip::Filter->VERSION($want_version); 1 },
