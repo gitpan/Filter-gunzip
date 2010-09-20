@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Filter-gunzip
-version:            2
+version:            3
 abstract:           Source filter uncompressing gzip files.
 author:
     - Kevin Ryde <user42@zip.com.au>

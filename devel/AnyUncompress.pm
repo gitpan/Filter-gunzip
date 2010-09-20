@@ -21,7 +21,7 @@ use warnings;
 use Carp;
 use Filter::Util::Call;
 
-our $VERSION = 2;
+our $VERSION = 3;
 
 use constant DEBUG => 1;
 

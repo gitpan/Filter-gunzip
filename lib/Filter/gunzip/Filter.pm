@@ -23,7 +23,7 @@ use Filter::Util::Call qw(filter_add filter_read filter_del);
 use Compress::Raw::Zlib qw(Z_OK Z_STREAM_END);
 
 use vars '$VERSION';
-$VERSION = 2;
+$VERSION = 3;
 
 # uncomment this to run the ### lines
 #use Smart::Comments;

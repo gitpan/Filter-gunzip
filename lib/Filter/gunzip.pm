@@ -24,7 +24,7 @@ use PerlIO;
 use PerlIO::gzip;
 
 use vars qw($VERSION @ISA);
-$VERSION = 2;
+$VERSION = 3;
 @ISA = ('DynaLoader');
 
 __PACKAGE__->bootstrap($VERSION);

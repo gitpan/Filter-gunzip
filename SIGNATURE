@@ -15,25 +15,25 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 842745cb706f8f2126506f544492f7a80dbe29b3 COPYING
-SHA1 21321f63fbf26980860d1e354007aa3cd5d7bc06 Changes
-SHA1 0fd8ca92f8d08a5ba655bf2e1f0286d9c46be158 MANIFEST
-SHA1 9f057ed3ba7d042426c4d899f7685b4ae05076b2 MANIFEST.SKIP
-SHA1 7f2a60e8443493ae35302b433d001c54b037650c META.yml
+SHA1 f1fba895f65d73a44cb09e46dcbcaaab2982fa2c Changes
+SHA1 e67faa69674ff671e116d31be37bd058365b8322 MANIFEST
+SHA1 e6e7c2904ea5d300c0ddf70fc5a80f5005229aa9 MANIFEST.SKIP
+SHA1 110c8d92d086b83a4d56ca483640094192c9c2e9 META.yml
 SHA1 2bdfed5f4e5961a4c02e548b75b62d52e58869b9 Makefile.PL
 SHA1 80d8fdf3ed493fd68a2ed3ac1181afee8da5a068 README
-SHA1 b06e9e347534627e7695adc9833596f2420c394b debian/changelog
+SHA1 990e93d2303a2e8eb3a2bf8460e247cad11cedb3 debian/changelog
 SHA1 ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4 debian/compat
 SHA1 be099784d0a944111624053eb621676f6aacfefe debian/control
 SHA1 7e0d58be2353d2b7a20e761ca6220b7ad9d1017b debian/copyright
 SHA1 3ec30bc697577ccea6340dd5a67ed2e1364b4d9f debian/rules
 SHA1 61652cd1568dcf2614df833eba241755eee34e89 debian/source/format
 SHA1 e51c311d83e5f16865eb7e63f2aa6baec728e0a9 debian/watch
-SHA1 5e4c71855b27350dcd147257371a4046bd270920 devel/AnyUncompress.pm
-SHA1 6618eb2dd5a5c31cee8658d384d7dd053037d311 devel/Base-eof-check.pm
-SHA1 e88544c46449ffed103d33d41ecb89ce1c3c159d devel/Base-final-status.pm
-SHA1 bce8446bc71efa6580360ca4bc49c24689dac74b devel/Base.pm
-SHA1 21d667a48cc1323d4747a17896a229ce9d7d29cb devel/Filter-bunzip2-Filter.pm
-SHA1 a103cc024f431b829967dd5ce7a3c5a14606db47 devel/GunzipNative.pm
+SHA1 788de62576a08f0f28d53631714cc123a38667e6 devel/AnyUncompress.pm
+SHA1 e8570ca7f71e9e7a14951f4ce48e92f2b82e1df4 devel/Base-eof-check.pm
+SHA1 d2ebf5579090946bcc65c5ea8a09313d6853ab55 devel/Base-final-status.pm
+SHA1 f5c76d6e9b154caa213e61b9c18bfc03466244e2 devel/Base.pm
+SHA1 0008e5700caa4953ed29ed4760ad6d151d770eb7 devel/Filter-bunzip2-Filter.pm
+SHA1 99e00f72f436f40cae16bd2515fe184643319c04 devel/GunzipNative.pm
 SHA1 71fd686ce635390877ad9ceb2dda4f80f72e2557 devel/Nofiles.pm
 SHA1 998c7112214c288b5637a2a6db33edc377fcf500 devel/data-gunzip.pl.gz
 SHA1 390ee5d1787794c1481616a2fd78ed300a854921 devel/data.pl
@@ -62,27 +62,27 @@ SHA1 4285aafb753c9ba76d45158dc84b5eef306e4c03 examples/hello.pl.gz
 SHA1 0e674bed4b63088b84f0946ea6a9bcc4a33f2683 examples/self-gunzip-part.pl
 SHA1 f16b156e34ba6b809a44df39fad52f28189dabe8 examples/self-gunzip.pl
 SHA1 0a45075d207d68e576533616368fb7193f6d7b8d gunzip.xs
-SHA1 91f40a4f9faab492cacef63fc315d3eb9de22584 inc/MyMakeMakerExtras.pm
+SHA1 3cf3345a9177dbe362dfc8fbf192272f4a611ca8 inc/MyMakeMakerExtras.pm
 SHA1 692a1ddc2ca6b98cac7b48ea40bc1ac1509e8ed9 inc/my_pod2html
-SHA1 cb84b60b16a80f938df67b85cf56653a29238629 lib/Filter/gunzip.pm
-SHA1 9c53c084f6883e6dc286b42f35937a447158c889 lib/Filter/gunzip/Filter.pm
+SHA1 ac284b867daa9cafc5542f10c283551ffce44e57 lib/Filter/gunzip.pm
+SHA1 2ba5d72c75e839cbfcf2b678b5ada1e7be81222a lib/Filter/gunzip/Filter.pm
 SHA1 847ddd74867e960646b4c166ab42047db4f9a1c4 ppport.h
-SHA1 9127f78a0dfa04976acbb979dd7862ef59a74c58 t/0-META-read.t
-SHA1 37abd43b41068804ea4bb099fdd89af21be82926 t/0-Test-DistManifest.t
-SHA1 8f93fb4c8f0424a4442cc93c9a2e86342ef55281 t/0-Test-Pod.t
-SHA1 fb517c2fae5ddac559318bf6a224949115ea3129 t/0-Test-YAML-Meta.t
-SHA1 cc9d34bca6c40211dd6aa8fee844bb1a7f908461 t/MyTestHelpers.pm
-SHA1 cb4774d6059d8fd7b3ddf5b418e6df3c62e7e69d t/gunzip-Filter.t
-SHA1 ab25b9757a0ffec9b05cfd312f566a8c845f5076 t/gunzip.t
+SHA1 5e5680b471811244fe93571efc23e7b6089cac3b t/MyTestHelpers.pm
+SHA1 7a0dad19272caba2939fbb669f8e32473b771c63 t/gunzip-Filter.t
+SHA1 37f1ea28abebc8e0f83b52acec97f0775f9a2e65 t/gunzip.t
 SHA1 46c5f338fe1c23d89bc1664a4083e8b0b50ba026 t/test1.dat
 SHA1 c7f5ef26348708570f2aa8f8ca5d46d2d91c06d2 t/test1.in
 SHA1 aecc9692d7168a7bac42558f9f4ff421a47c0852 t/test2.dat
 SHA1 ce68002a6f34e97eaad212ad6ad4649094978753 t/test2.in
 SHA1 565cdd4f3428ea2300346ac7e3b20ef56f2fe579 t/test2.t
+SHA1 9127f78a0dfa04976acbb979dd7862ef59a74c58 xt/0-META-read.t
+SHA1 37abd43b41068804ea4bb099fdd89af21be82926 xt/0-Test-DistManifest.t
+SHA1 8f93fb4c8f0424a4442cc93c9a2e86342ef55281 xt/0-Test-Pod.t
+SHA1 fb517c2fae5ddac559318bf6a224949115ea3129 xt/0-Test-YAML-Meta.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iD8DBQFMeaw3LFMCIV9q3ToRAs2JAKC1cUdcFvQuAkd93eGU8Mq+k2fTpQCfcDtB
-4a9JOcv+9Vfe52c5O9HkmQI=
-=a6Sr
+iD8DBQFMl8mYLFMCIV9q3ToRAsoaAJ9UpSUqigHL2C6/3gkPV4zYqrypUQCcCwBK
+q0lpYXLwNdt+ixGalgiXL7A=
+=qXpU
 -----END PGP SIGNATURE-----
