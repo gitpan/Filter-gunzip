@@ -1,4 +1,4 @@
-# Copyright 2010 Kevin Ryde
+# Copyright 2010, 2011 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -17,14 +17,13 @@
 
 package Filter::gunzip;
 use strict;
-use warnings;
 use Carp;
 use DynaLoader;
 use PerlIO;
 use PerlIO::gzip;
 
 use vars qw($VERSION @ISA);
-$VERSION = 3;
+$VERSION = 4;
 @ISA = ('DynaLoader');
 
 __PACKAGE__->bootstrap($VERSION);
@@ -181,13 +180,16 @@ are restricted to Perl builtins (see L<perlrun/PERLIO>).
 L<PerlIO::gzip>, L<PerlIO>, L<Filter::Util::Call>, L<Filter::exec>,
 L<gzip(1)>, L<zcat(1)>, L<open>
 
+L<http://user42.tuxfamily.org/compile-command-default/index.html> setting up
+a C<Filter::gunzip> command (and other forms) to run a C<.pl.gz> from Emacs.
+
 =head1 HOME PAGE
 
 http://user42.tuxfamily.org/filter-gunzip/index.html
 
 =head1 LICENSE
 
-Filter-gunzip is Copyright 2010 Kevin Ryde
+Filter-gunzip is Copyright 2010, 2011 Kevin Ryde
 
 Filter-gunzip is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by the Free

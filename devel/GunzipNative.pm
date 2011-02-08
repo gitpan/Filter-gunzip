@@ -1,4 +1,4 @@
-# Copyright 2010 Kevin Ryde
+# Copyright 2010, 2011 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -22,7 +22,7 @@ use Carp;
 use Filter::Util::Call;
 use Compress::Zlib;
 
-our $VERSION = 3;
+our $VERSION = 4;
 
 use constant DEBUG => 1;
 

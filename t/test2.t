@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Copyright 2010 Kevin Ryde
+# Copyright 2010, 2011 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -19,7 +19,10 @@
 
 use strict;
 use warnings;
-use Test::More tests => 2;
+use Test;
+BEGIN {
+  plan tests => 2;
+}
 
 use lib 't';
 use MyTestHelpers;
@@ -33,11 +36,13 @@ BEGIN { MyTestHelpers::nowarnings() }
 
   use vars qw($test2);
   $test2 = 0;
-  my $result = eval { no warnings;
+  my $result = eval { local $SIG{'__WARN__'} = sub {}; # no warnings
                       require $filename };
   my $err = $@;
-  is ($result, "test2 compressed end");
-  is ($err, '');
+  print "result ",(defined $result ? $result : '[undef]'), "\n";
+  print "err    ",(defined $err ? $err : '[undef]'), "\n";
+  ok (defined $result && $result eq "test2 compressed end");
+  ok (defined $err && $err eq '');
 }
 
 exit 0;

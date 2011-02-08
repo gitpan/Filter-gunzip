@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Filter-gunzip
-version:            3
+version:            4
 abstract:           Source filter uncompressing gzip files.
 author:
     - Kevin Ryde <user42@zip.com.au>
@@ -13,11 +13,10 @@ build_requires:
 requires:
     Compress::Raw::Zlib:  0
     Filter::Util::Call:   0
-    perl:                 5.005
+    perl:                 5.006
     PerlIO:               0
     PerlIO::gzip:         0
     Test::More:           0
-    warnings:             0
 resources:
     homepage:  http://user42.tuxfamily.org/filter-gunzip/index.html
     license:   http://www.gnu.org/licenses/gpl.html

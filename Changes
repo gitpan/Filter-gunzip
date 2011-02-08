@@ -1,4 +1,4 @@
-Copyright 2010 Kevin Ryde
+Copyright 2010, 2011 Kevin Ryde
 
 This file is part of Filter-gunzip.
 
@@ -16,6 +16,10 @@ You should have received a copy of the GNU General Public License along
 with Filter-gunzip.  If not, see <http://www.gnu.org/licenses/>.
 
 
+
+Version 4, February 2011
+    - fix Makefile.PL for perl 5.6 and earlier
+      (though PerlIO::gzip is 5.8, so probably at least that needed anyway)
 
 Version 3, September 2010
     - test manifest only as an author test

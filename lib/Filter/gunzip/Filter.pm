@@ -1,4 +1,4 @@
-# Copyright 2010 Kevin Ryde
+# Copyright 2010, 2011 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -17,13 +17,12 @@
 
 package Filter::gunzip::Filter;
 use strict;
-use warnings;
 use Carp;
 use Filter::Util::Call qw(filter_add filter_read filter_del);
 use Compress::Raw::Zlib qw(Z_OK Z_STREAM_END);
 
 use vars '$VERSION';
-$VERSION = 3;
+$VERSION = 4;
 
 # uncomment this to run the ### lines
 #use Smart::Comments;
@@ -156,4 +155,4 @@ What should a binary mode filter do in general?
 Other unrelated formats like
 Unix C<compress> are left for other modules.
 
-Depends: perl (>= 5.005), libfilter-perl, libcompress-raw-zlib-perl | perl (>= 5.10), libwarnings-perl | perl-modules (>= 5.6), ${perl:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Depends: perl (>= 5.005), libfilter-perl, libcompress-raw-zlib-perl | perl (>= 5.10), ${perl:Depends}, ${misc:Depends}, ${shlibs:Depends}
