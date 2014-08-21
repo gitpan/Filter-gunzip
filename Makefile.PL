@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Copyright 2010, 2011 Kevin Ryde
+# Copyright 2010, 2011, 2012, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -20,15 +20,13 @@
 use 5.006;
 use strict;
 use ExtUtils::MakeMaker;
-use lib 'inc';
-use MyMakeMakerExtras;
 
-MyMakeMakerExtras::WriteMakefile
+WriteMakefile
   (NAME         => 'Filter::gunzip',
    ABSTRACT     => 'Source filter uncompressing gzip files.',
    VERSION_FROM => 'lib/Filter/gunzip.pm',
-   AUTHOR       => 'Kevin Ryde <user42@zip.com.au>',
-   LICENSE      => 'gpl',
+   AUTHOR       => 'Kevin Ryde <user42_kevin@yahoo.com.au>',
+   LICENSE      => 'gpl_3',
    SIGN         => 1,
 
    # Filter::Util::Call is 5.006 because it uses warnings.pm
@@ -38,6 +36,7 @@ MyMakeMakerExtras::WriteMakefile
    PREREQ_PM    => {
                     'Filter::Util::Call' => 0,
                     'Compress::Raw::Zlib' => 0,
+                    'Test' => 0,
                     'Test::More' => 0,
                     'PerlIO' => 0,
                     'PerlIO::gzip' => 0,
@@ -45,22 +44,25 @@ MyMakeMakerExtras::WriteMakefile
 
    META_MERGE =>
    { resources =>
-     { homepage => 'http://user42.tuxfamily.org/filter-gunzip/index.html' },
-
-     optional_features =>
-     { maximum_devel =>
-       { description => 'Stuff used variously for development.',
-         requires => { 'Compress::Zlib' => 0,
-                       'Compress::Raw::Bzip2' => 0,
-                       'Devel::Peek' => 0,
-                       'Filter::Util::Call' => 0,
-                       'BSD::Resource' => 0,
-                       'Smart::Comments' => 0,
-                       'Filter::exec' => 0,
-                       'Filter::tee' => 0,
-                       'lib::abs' => 0,
-                     },
-       },
+     { homepage => 'http://user42.tuxfamily.org/filter-gunzip/index.html',
+       license  => 'http://www.gnu.org/licenses/gpl.html',
      },
+     no_index => { directory=>['devel'] },
    },
   );
+
+# optional_features =>
+# { maximum_devel =>
+#   { description => 'Stuff used variously for development.',
+#     requires => { 'Compress::Zlib' => 0,
+#                   'Compress::Raw::Bzip2' => 0,
+#                   'Devel::Peek' => 0,
+#                   'Filter::Util::Call' => 0,
+#                   'BSD::Resource' => 0,
+#                   'Smart::Comments' => 0,
+#                   'Filter::exec' => 0,
+#                   'Filter::tee' => 0,
+#                   'lib::abs' => 0,
+#                 },
+#   },
+# },

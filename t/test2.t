@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Copyright 2010, 2011 Kevin Ryde
+# Copyright 2010, 2011, 2012, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -20,9 +20,7 @@
 use strict;
 use warnings;
 use Test;
-BEGIN {
-  plan tests => 2;
-}
+plan tests => 2;
 
 use lib 't';
 use MyTestHelpers;
@@ -36,8 +34,10 @@ BEGIN { MyTestHelpers::nowarnings() }
 
   use vars qw($test2);
   $test2 = 0;
-  my $result = eval { local $SIG{'__WARN__'} = sub {}; # no warnings
-                      require $filename };
+  my $result = eval {
+    local $SIG{'__WARN__'} = sub {}; # no warnings
+    require $filename;
+  };
   my $err = $@;
   print "result ",(defined $result ? $result : '[undef]'), "\n";
   print "err    ",(defined $err ? $err : '[undef]'), "\n";

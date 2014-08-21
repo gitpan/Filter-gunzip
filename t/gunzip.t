@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Copyright 2010, 2011 Kevin Ryde
+# Copyright 2010, 2011, 2013, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -31,7 +31,7 @@ require Filter::gunzip;
 # VERSION
 
 {
-  my $want_version = 4;
+  my $want_version = 6;
   is ($Filter::gunzip::VERSION, $want_version, 'VERSION variable');
   is (Filter::gunzip->VERSION,  $want_version, 'VERSION class method');
   ok (eval { Filter::gunzip->VERSION($want_version); 1 },

@@ -1,4 +1,4 @@
-# Copyright 2010, 2011 Kevin Ryde
+# Copyright 2010, 2011, 2013, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -21,7 +21,7 @@ use warnings;
 use Carp;
 use Filter::Util::Call qw(filter_add filter_read);
 
-our $VERSION = 4;
+our $VERSION = 6;
 
 use constant DEBUG => 0;
 

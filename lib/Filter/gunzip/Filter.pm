@@ -1,4 +1,4 @@
-# Copyright 2010, 2011 Kevin Ryde
+# Copyright 2010, 2011, 2013, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -19,15 +19,13 @@ package Filter::gunzip::Filter;
 use strict;
 use Carp;
 use Filter::Util::Call qw(filter_add filter_read filter_del);
-use Compress::Raw::Zlib qw(Z_OK Z_STREAM_END);
+use Compress::Raw::Zlib qw(Z_OK Z_STREAM_END Z_BUF_ERROR);
 
 use vars '$VERSION';
-$VERSION = 4;
+$VERSION = 6;
 
 # uncomment this to run the ### lines
-#use Smart::Comments;
-
-use constant _INPUT_BLOCK_SIZE => 4096;
+# use Smart::Comments;
 
 sub import {
   my ($class) = @_;
@@ -84,9 +82,10 @@ sub filter {
   # get more input data, if haven't seen input eof and if don't already have
   # some data to use
   #
+  ### input length: length($self->{'input'})
   if (! $self->{'input_eof'} && ! length ($self->{'input'})) {
-    my $status = filter_read(_INPUT_BLOCK_SIZE);
-    ### filter_read(): $status
+    my $status = filter_read(4096);  # input block size
+    ### filter_read() returns: $status
     if ($status < 0) {
       return $status;
     }
@@ -94,13 +93,17 @@ sub filter {
       $self->{'input_eof'} = 1;
     } else {
       $self->{'input'} = $_;
+      # open my $fh, '>', '/tmp/x.dat' or die;
+      # print $fh $_ or die;
+      # close $fh or die;
     }
   }
 
   my $input_len_before = length($self->{'input'});
+  ### $input_len_before
   my $zerr = $self->{'inflator'}->inflate ($self->{'input'}, $_);
   ### zinflate: $zerr+0, "$zerr"
-  ### output len: length($_)
+  ### _ output length: length($_)
   ### leaving input len: length($self->{'input'})
 
   if ($zerr == Z_STREAM_END) {
@@ -113,7 +116,7 @@ sub filter {
   }
 
   my $status;
-  if ($zerr == Z_OK) {
+  if ($zerr == Z_OK || $zerr == Z_BUF_ERROR) {
     if (length($_) == 0) {
       if ($input_len_before == length($self->{'input'})) {
         # protect against infinite loop
@@ -138,7 +141,7 @@ sub filter {
   }
 
   # $zerr not Z_OK and not Z_STREAM_END
-  carp __PACKAGE__," error: $zerr";
+  carp __PACKAGE__," zlib error: $zerr";
   return -1;
 }
 

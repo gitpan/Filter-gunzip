@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Copyright 2010 Kevin Ryde
+# Copyright 2010, 2011, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -28,8 +28,61 @@ my $topdir = File::Spec->catdir ($FindBin::Bin, File::Spec->updir);
 
 
 {
+  # open my $fh, '<', '/tmp/x.dat' or die;
+  # my $str = do { local $/; <$fh> } or die;
+  # close $fh or die;
+  # print "length ",length($str),"\n";
+
+  open my $fh, '<', '/tmp/test2.in.gz' or die;
+  # open my $fh, '<', 't/test2.dat' or die;
+  # seek $fh, 720, 0 or die;
+  my $str = do { local $/; <$fh> } or die;
+  close $fh or die;
+  print "length ",length($str),"\n";
+
+  require Compress::Raw::Zlib;
+  my ($inf, $zerr) = Compress::Raw::Zlib::Inflate->new
+    (
+     # -ConsumeInput => 1,
+     # -LimitOutput  => 1,
+      -WindowBits   => - Compress::Raw::Zlib::MAX_WBITS(),
+     # -WindowBits   => (Compress::Raw::Zlib::MAX_WBITS()
+     #                   + Compress::Raw::Zlib::WANT_GZIP_OR_ZLIB())
+    );
+  $inf or die "cannot create inflator: $zerr";
+
+  my $out;
+  $zerr = $inf->inflate ($str, $out);
+
+  print "zerr ",$zerr+0,"\n";
+  print "zerr ",$zerr,"\n";
+
+  exit 0;
+}
+
+{
+  require PerlIO::via::gzip;
+  open( my $fh, "<:via(gzip)", "show-argv.pl.gz" )
+    or die $!;
+  print "$fh\n";
+  while (<$fh>) {
+    print;
+  }
+  exit 0;
+}
+
+{
   my $status = system
     'perl', '-e', '{use open IN=>":gzip";require shift}',
+    "$thisdir/show-argv.pl.gz", 'first arg', 'second arg';
+  # 'examples/hello.pl.gz';
+  print "exit $status\n";
+  exit 0;
+}
+
+{
+  my $status = system
+    'perl', '-e', '{use open IN=>":via(gzip)";require shift}',
     "$thisdir/show-argv.pl.gz", 'first arg', 'second arg';
   # 'examples/hello.pl.gz';
   print "exit $status\n";

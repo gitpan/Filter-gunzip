@@ -1,4 +1,4 @@
-Copyright 2010, 2011 Kevin Ryde
+Copyright 2010, 2011, 2013, 2014 Kevin Ryde
 
 This file is part of Filter-gunzip.
 
@@ -16,6 +16,13 @@ You should have received a copy of the GNU General Public License along
 with Filter-gunzip.  If not, see <http://www.gnu.org/licenses/>.
 
 
+
+Version 6, August 2014
+    - workaround for incompatible change in Compress::Raw::Zlib::Inflate
+      -LimitOutput returning Z_BUF_ERROR
+
+Version 5, January 2013
+    - debian dir maintainer part 0.1
 
 Version 4, February 2011
     - fix Makefile.PL for perl 5.6 and earlier

@@ -1,4 +1,4 @@
-# Copyright 2010, 2011 Kevin Ryde
+# Copyright 2010, 2011, 2013, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -29,12 +29,10 @@ use Compress::Raw::Bzip2;
 #use Smart::Comments;
 
 use vars '$VERSION';
-$VERSION = 4;
+$VERSION = 6;
 
 # libbunzip2 supposedly uses either 4Mb or 2.5Mb for decompressing, so an
 # effort is made here to turf the inflator as soon as no longer needed
-
-use constant _INPUT_BLOCK_SIZE => 4096;
 
 # Filter::Util::Call 1.37 filter_add() rudely re-blesses the object into the
 # callers package.  Doesn't affect plain use here, but a subclass would want
@@ -86,7 +84,7 @@ sub filter {
   # some data to use
   #
   if (! $self->{'input_eof'} && ! length ($self->{'input'})) {
-    my $status = filter_read(_INPUT_BLOCK_SIZE);
+    my $status = filter_read(4096);  # input block size
     ### filter_read(): $status
     if ($status < 0) {
       delete $self->{'inf'};

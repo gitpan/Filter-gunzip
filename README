@@ -1,4 +1,4 @@
-Copyright 2010 Kevin Ryde
+Copyright 2010, 2013 Kevin Ryde
 
 This file is part of Filter-gunzip.
 
@@ -19,9 +19,8 @@ along with Filter-gunzip.  If not, see <http://www.gnu.org/licenses/>.
 
 
 This spot of code gunzips Perl source code with a layer pushed on the
-parser input.  It's slightly at proof of concept stage, but is a handy
-way to run foo.pl.gz files directly, or even to make a
-self-uncompressing executable if desired.
+parser input.  It's a handy way to run foo.pl.gz files directly, or
+even to make a self-uncompressing executable if desired.
 
 The Filter::gunzip home page is
 

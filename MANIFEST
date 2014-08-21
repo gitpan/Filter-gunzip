@@ -13,6 +13,7 @@ devel/Base-final-status.pm
 devel/Base.pm
 devel/data-gunzip.pl.gz
 devel/data.pl
+devel/exe-zlib-inflate.c
 devel/exec-data.pl
 devel/exec-nofiles.pl
 devel/exec-nofork.pl
@@ -26,6 +27,7 @@ devel/gunzip-with-smart.pl.gz
 devel/gunzip-with-tee.pl.gz
 devel/GunzipNative.pm
 devel/inflateInit.pl
+devel/Makefile
 devel/nofiles-main.pl
 devel/Nofiles.pm
 devel/run.pl
@@ -41,8 +43,6 @@ examples/hello.pl.gz
 examples/self-gunzip-part.pl
 examples/self-gunzip.pl
 gunzip.xs
-inc/my_pod2html
-inc/MyMakeMakerExtras.pm
 lib/Filter/gunzip.pm
 lib/Filter/gunzip/Filter.pm
 Makefile.PL
@@ -59,8 +59,16 @@ t/test1.in
 t/test2.dat
 t/test2.in
 t/test2.t
+xt/0-examples-xrefs.t
+xt/0-file-is-part-of.t
 xt/0-META-read.t
+xt/0-no-debug-left-on.t
+xt/0-Test-ConsistentVersion.t
 xt/0-Test-DistManifest.t
 xt/0-Test-Pod.t
 xt/0-Test-YAML-Meta.t
-META.yml                                 Module meta-data (added by MakeMaker)
+xtools/my-check-copyright-years.sh
+xtools/my-check-spelling.sh
+xtools/my-deb.sh
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)

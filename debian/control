@@ -1,4 +1,4 @@
-# Copyright 2010 Kevin Ryde
+# Copyright 2010, 2011, 2012, 2013, 2014 Kevin Ryde
 
 # This file is part of Filter-gunzip.
 #
@@ -16,21 +16,18 @@
 # with Filter-gunzip.  If not, see <http://www.gnu.org/licenses/>.
 
 
-# Build-Depends could have the "maximum_tests" modules from META.yml
-# for more tests, but they're optional author tests really and would
-# just make the build tools drag in more stuff.
-
 Source: libfilter-gunzip-perl
 Section: perl
 Priority: optional
 Build-Depends: cdbs, debhelper (>= 5), libtest-more-perl | perl (>= 5.6.2)
-Maintainer: Kevin Ryde <user42@zip.com.au>
-Standards-Version: 3.9.1
+Maintainer: Kevin Ryde <user42_kevin@yahoo.com.au>
+Standards-Version: 3.9.5
 Homepage: http://user42.tuxfamily.org/filter-gunzip/index.html
-Bugs: mailto:user42@zip.com.au
+Bugs: mailto:user42_kevin@yahoo.com.au
 
 Package: libfilter-gunzip-perl
 Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
 Depends: perl (>= 5.006), libperlio-perl | perl (>= 5.6), libperlio-gzip-perl, ${perl:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Source filter uncompressing gzip files
  Filter::gunzip uncompresses gzipped Perl source files for execution.
